@@ -1,16 +1,30 @@
 # Directions
 
-This will generate an environment with:
+To start up the different containers individually.
 
-- Dremio on localhost:9047
-- Flink on localhost:8081
-- Minio on localhost:9001 (storage:9000 for s3 endpoints)
-- Jupyter Notebook w/ Spark on localhost:8080
+spark 3.3 with jupyter notebook
 
-Must have Docker & Docker-Compose installed (both should come with docker desktop).
+```
+docker-compose up notebook
+```
 
-- Navigate terminal to the same directory as the docker-compose.yml
-- run `docker-compose up`
+minio (s3-compatible storage layer)
+
+```
+docker-compose up minio
+```
+
+nessie (transactional catalog for Apache Iceberg)
+
+```
+docker-compose up nessie
+```
+
+Dremio (data lakehouse platform (query engine, access layer, more))
+
+```
+docker-compose up dremio
+```
 
 There are three folders in this repo mapped specifically to the spark/notebook container which are:
 
